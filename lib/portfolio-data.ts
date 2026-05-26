@@ -1,0 +1,160 @@
+import { Project, Experience, Skill } from './types';
+
+export const projects: Project[] = [
+  {
+    id: 'distributed-cache',
+    title: 'Distributed Cache Layer Architecture',
+    description: 'Built a high-performance distributed caching system supporting 100k+ requests/sec with sub-millisecond latency.',
+    shortDescription: 'Distributed caching system handling 100k+ RPS',
+    technologies: ['Redis', 'TypeScript', 'Node.js', 'Docker', 'Kubernetes'],
+    featured: true,
+    category: 'infrastructure',
+    impact: '99.99% uptime, 70% reduction in database load',
+    role: 'Lead Backend Engineer',
+    date: '2024',
+    metrics: [
+      { label: 'Throughput', value: '100k RPS' },
+      { label: 'Latency', value: '<1ms' },
+      { label: 'Uptime', value: '99.99%' },
+    ],
+  },
+  {
+    id: 'microservices',
+    title: 'Microservices Migration Platform',
+    description: 'Architected and implemented migration of monolithic system to event-driven microservices.',
+    shortDescription: 'Event-driven microservices platform',
+    technologies: ['Node.js', 'TypeScript', 'Kafka', 'Docker', 'GraphQL'],
+    featured: true,
+    category: 'backend',
+    impact: 'Reduced deployment time from 2 hours to 5 minutes',
+    role: 'Senior Backend Engineer',
+    date: '2023',
+    metrics: [
+      { label: 'Services', value: '15+' },
+      { label: 'Deployment Time', value: '5 min' },
+      { label: 'Team Velocity', value: '3x faster' },
+    ],
+  },
+  {
+    id: 'api-gateway',
+    title: 'High-Performance API Gateway',
+    description: 'Designed and deployed a custom API gateway with advanced routing, rate limiting, and authentication.',
+    shortDescription: 'Custom API gateway with advanced routing',
+    technologies: ['Rust', 'TypeScript', 'gRPC', 'Envoy'],
+    featured: true,
+    category: 'infrastructure',
+    impact: '50% reduction in latency, 10x throughput improvement',
+    role: 'Principal Engineer',
+    date: '2024',
+    metrics: [
+      { label: 'Latency', value: '-50%' },
+      { label: 'Throughput', value: '10x' },
+      { label: 'Services', value: '50+' },
+    ],
+  },
+  {
+    id: 'real-time-analytics',
+    title: 'Real-Time Analytics Engine',
+    description: 'Built a streaming analytics platform processing 1M+ events per second with sub-second query latency.',
+    shortDescription: 'Streaming analytics for 1M+ events/sec',
+    technologies: ['Kafka', 'ClickHouse', 'TypeScript', 'Node.js'],
+    featured: false,
+    category: 'systems',
+    impact: '1M events/second, <1s query latency',
+    role: 'Backend Engineer',
+    date: '2023',
+  },
+  {
+    id: 'kubernetes-operator',
+    title: 'Kubernetes Operator Development',
+    description: 'Developed a Kubernetes operator for automated deployment and management of distributed services.',
+    shortDescription: 'Custom Kubernetes operator',
+    technologies: ['Go', 'Kubernetes', 'Docker'],
+    featured: false,
+    category: 'devops',
+    impact: 'Reduced operational overhead by 60%',
+    role: 'DevOps Engineer',
+    date: '2023',
+  },
+  {
+    id: 'database-optimization',
+    title: 'Database Optimization & Scaling',
+    description: 'Optimized PostgreSQL and MongoDB databases, implementing sharding and query optimization strategies.',
+    shortDescription: 'Database scaling & optimization',
+    technologies: ['PostgreSQL', 'MongoDB', 'SQL', 'Go'],
+    featured: false,
+    category: 'backend',
+    impact: '5x query performance improvement',
+    role: 'Senior Backend Engineer',
+    date: '2023',
+  },
+];
+
+export const experiences: Experience[] = [
+  {
+    company: 'TechCorp',
+    title: 'Senior Backend Engineer',
+    startDate: '2022',
+    current: true,
+    description: 'Leading backend infrastructure and systems design for platform serving millions of users.',
+    technologies: ['TypeScript', 'Node.js', 'Go', 'Kubernetes', 'AWS'],
+    achievements: [
+      'Architected distributed caching layer processing 100k+ requests/second',
+      'Led migration of monolithic system to event-driven microservices',
+      'Reduced database query latency by 70% through optimization',
+    ],
+  },
+  {
+    company: 'CloudSystems Inc',
+    title: 'Backend Engineer',
+    startDate: '2020',
+    endDate: '2022',
+    description: 'Developed core backend services and infrastructure components.',
+    technologies: ['TypeScript', 'Node.js', 'PostgreSQL', 'Docker'],
+    achievements: [
+      'Built real-time data processing pipeline for analytics',
+      'Implemented API gateway with advanced routing and rate limiting',
+      'Improved application performance by 3x through optimization',
+    ],
+  },
+  {
+    company: 'StartupXYZ',
+    title: 'Full Stack Engineer',
+    startDate: '2018',
+    endDate: '2020',
+    description: 'Built full-stack features and infrastructure from ground up.',
+    technologies: ['JavaScript', 'Node.js', 'React', 'MongoDB'],
+    achievements: [
+      'Developed core product features from design to deployment',
+      'Scaled infrastructure to handle 10x user growth',
+      'Mentored junior developers on best practices',
+    ],
+  },
+];
+
+export const skills: Skill[] = [
+  {
+    category: 'Languages',
+    items: ['TypeScript', 'Go', 'Rust', 'JavaScript', 'SQL', 'Python'],
+  },
+  {
+    category: 'Backend',
+    items: ['Node.js', 'Express', 'GraphQL', 'REST APIs', 'gRPC', 'Message Queues'],
+  },
+  {
+    category: 'Databases',
+    items: ['PostgreSQL', 'MongoDB', 'Redis', 'ClickHouse', 'Elasticsearch'],
+  },
+  {
+    category: 'Infrastructure',
+    items: ['Docker', 'Kubernetes', 'AWS', 'Terraform', 'CI/CD', 'Monitoring'],
+  },
+  {
+    category: 'Systems Design',
+    items: ['Distributed Systems', 'Microservices', 'Event-Driven Architecture', 'System Scalability'],
+  },
+  {
+    category: 'Tools',
+    items: ['Git', 'GitHub', 'Vercel', 'Datadog', 'Prometheus', 'ELK Stack'],
+  },
+];
