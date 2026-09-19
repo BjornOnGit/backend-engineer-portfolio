@@ -8,7 +8,7 @@ export interface Project {
   link?: string;
   github?: string;
   featured: boolean;
-  category: 'infrastructure' | 'backend' | 'fullstack' | 'devops' | 'systems';
+  category: 'industrial' | 'backend' | 'fullstack' | 'fintech' | 'systems' | 'devops';
   impact?: string;
   role?: string;
   date?: string;

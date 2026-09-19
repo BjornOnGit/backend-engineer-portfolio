@@ -54,7 +54,7 @@ export function Navigation() {
           {/* Social Links */}
           <div className="flex items-center gap-3">
             <motion.a
-              href="https://github.com"
+              href="https://github.com/BjornOnGit"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
@@ -64,7 +64,7 @@ export function Navigation() {
               <Github size={20} />
             </motion.a>
             <motion.a
-              href="https://linkedin.com"
+              href="https://www.linkedin.com/in/francis-eze-ogonnaya"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
@@ -74,7 +74,7 @@ export function Navigation() {
               <Linkedin size={20} />
             </motion.a>
             <motion.a
-              href="mailto:hello@example.com"
+              href="mailto:ezefrancis049@gmail.com"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               className="hidden sm:flex p-2 text-muted-foreground hover:text-foreground hover:bg-secondary rounded-lg transition-colors"

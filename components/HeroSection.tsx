@@ -44,7 +44,7 @@ export function HeroSection() {
           <motion.div variants={itemVariants}>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-accent/30 bg-accent/10 mb-8">
               <Code2 size={16} className="text-accent" />
-              <span className="text-sm text-accent font-medium">Backend Infrastructure Engineer</span>
+              <span className="text-sm text-accent font-medium">Backend-Focused Fullstack Engineer</span>
             </div>
           </motion.div>
 
@@ -52,16 +52,15 @@ export function HeroSection() {
           <motion.h1 variants={itemVariants} className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6 text-balance">
             Building{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-accent-light to-accent">
-              Scalable Systems
+              Systems That Handle
             </span>
             <br />
-            That Power The Web
+            Money, Machines, and Patients Reliably
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p variants={itemVariants} className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            I architect and build robust backend infrastructure, distributed systems, and cloud-native applications that
-            handle scale. Let&apos;s talk about systems design, infrastructure, and engineering excellence.
+            I design and build backend systems for products where correctness isn't optional. Comfortable across Python, Go, and TypeScript, from API design through deployment.
           </motion.p>
 
           {/* CTA Buttons */}
@@ -76,7 +75,7 @@ export function HeroSection() {
               </motion.div>
             </Link>
             <a
-              href="mailto:hello@example.com"
+              href="mailto:ezefrancis049@gmail.com"
               className="inline-flex items-center gap-2 px-8 py-3 rounded-lg border border-accent/30 text-foreground hover:border-accent hover:bg-accent/5 transition-colors"
             >
               Get In Touch
@@ -89,9 +88,9 @@ export function HeroSection() {
             className="mt-20 grid grid-cols-3 gap-8 pt-12 border-t border-border"
           >
             {[
-              { label: 'Years Experience', value: '6+' },
-              { label: 'Projects Built', value: '50+' },
-              { label: 'Scale Handled', value: '100k+ RPS' },
+              { label: 'Years Experience', value: '3+' },
+              { label: 'Projects Built', value: '10+' },
+              { label: 'Failed Transactions', value: '< 90%' },
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <p className="text-3xl sm:text-4xl font-bold text-accent mb-2">{stat.value}</p>

@@ -43,9 +43,7 @@ export function AboutSection({ experiences }: AboutSectionProps) {
       >
         <h3 className="text-2xl font-bold mb-4">About Me</h3>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          I&apos;m a backend infrastructure engineer with a passion for designing systems that scale. 
-          Over the past 6+ years, I&apos;ve worked on distributed systems, microservices architectures, 
-          and cloud infrastructure that power millions of users.
+          I&apos;m a detail-oriented software engineer with a solid foundation in backend development, API design, and systems integration. Proficient in Python, Django, FastAPI, Go, and JavaScript frameworks, with experience in deploying scalable web applications using Docker, DigitalOcean, and CI/​CD tools. Demonstrated ability to solve business problems through code, with recent projects spanning e-commerce systems, healthcare automation, cybersecurity platforms, and intelligent financial decision engines. Skilled at cross-functional collaboration and technical writing, with a passion for building useful, performant, and user-centric software.
         </p>
         <p className="text-muted-foreground leading-relaxed mb-4">
           My expertise spans from low-level systems programming to high-level architectural decisions. 
