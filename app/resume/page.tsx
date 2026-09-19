@@ -49,12 +49,17 @@ export default function ResumePage() {
 
         {/* Education Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-          <div className="max-w-4xl mx-auto">
+          <div className="max-w-4xl mx-auto space-y-6">
             <h2 className="text-3xl font-bold mb-12">Education</h2>
             <div className="bg-secondary border border-border rounded-lg p-6">
-              <h3 className="text-xl font-semibold mb-2">Bachelor of Science in Computer Science</h3>
-              <p className="text-accent font-medium mb-2">University Name</p>
-              <p className="text-sm text-muted-foreground">Graduated: 2018</p>
+              <h3 className="text-xl font-semibold mb-2">Electronic and Computer Engineering</h3>
+              <p className="text-accent font-medium mb-2">Nnamdi Azikiwe University</p>
+              <p className="text-sm text-muted-foreground">2019 – 2024</p>
+            </div>
+            <div className="bg-secondary border border-border rounded-lg p-6">
+              <h3 className="text-xl font-semibold mb-2">Diploma, ALX Software Engineering Program</h3>
+              <p className="text-accent font-medium mb-2">1-year software engineering program specializing in backend engineering</p>
+              <p className="text-sm text-muted-foreground">2022 – 2023</p>
             </div>
           </div>
         </section>
@@ -68,44 +73,24 @@ export default function ResumePage() {
           />
         </div>
 
-        {/* Certifications Section */}
-        <section className="py-16 px-4 sm:px-6 lg:px-8 bg-secondary/30">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12">Certifications</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {[
-                { title: 'AWS Solutions Architect Professional', issuer: 'Amazon Web Services' },
-                { title: 'Kubernetes Application Developer (CKAD)', issuer: 'Cloud Native Computing Foundation' },
-                { title: 'PostgreSQL Associate', issuer: 'EDB' },
-              ].map((cert, i) => (
-                <div key={i} className="bg-secondary border border-border rounded-lg p-6">
-                  <h3 className="font-semibold mb-1">{cert.title}</h3>
-                  <p className="text-sm text-accent">{cert.issuer}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Summary Section */}
         <section className="py-16 px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl font-bold mb-6">Professional Summary</h2>
             <div className="bg-secondary border border-border rounded-lg p-8 space-y-4">
               <p className="text-muted-foreground leading-relaxed">
-                Senior backend engineer with 6+ years of experience designing and implementing scalable distributed systems, 
-                cloud infrastructure, and high-performance applications. Proven expertise in microservices architecture, 
-                database optimization, and DevOps practices.
+                Detail-oriented software engineer with a solid foundation in backend development, API design, and systems
+                integration. Proficient in Python, Django, FastAPI, Go, and JavaScript frameworks, with experience deploying
+                scalable web applications using Docker, DigitalOcean, and CI/CD tools.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Strong background in building systems that handle millions of requests per second, with deep knowledge of 
-                containerization, orchestration, and modern cloud platforms. Passionate about clean code, system design, 
-                and mentoring junior engineers.
+                Demonstrated ability to solve business problems through code, with recent projects spanning payments,
+                industrial predictive maintenance, e-commerce, healthcare automation, cybersecurity, and financial decision
+                engines.
               </p>
               <p className="text-muted-foreground leading-relaxed">
-                Experienced in full software development lifecycle from architecture and design through deployment and 
-                monitoring. Skilled communicator with the ability to translate complex technical concepts for both technical 
-                and non-technical audiences.
+                Skilled at cross-functional collaboration and technical writing, with a passion for building useful,
+                performant, user-centric software.
               </p>
             </div>
           </div>

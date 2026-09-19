@@ -1,62 +1,29 @@
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 export const metadata = {
-  title: 'Blog | Backend Engineer Portfolio',
-  description: 'Articles about backend engineering, systems design, and infrastructure.',
+  title: 'Blog | Francis Eze',
+  description: 'Notes on backend engineering, payments, and industrial systems from real projects.',
 };
 
 const blogPosts = [
   {
-    id: 'distributed-caching',
-    title: 'Building High-Performance Distributed Caching Systems',
-    description: 'A deep dive into designing and implementing distributed caching layers that can handle millions of requests per second.',
-    date: '2024-03-15',
+    id: 'sensor-alerting-thresholds',
+    title: 'Designing a Threshold-Based Alerting System for Industrial Sensor Data',
+    description: 'How I built the alerting layer for a predictive maintenance platform — turning noisy vibration and temperature readings into alerts operators can actually trust.',
+    date: '2026-08-20',
+    readTime: 7,
+    tags: ['fastapi', 'postgresql', 'industrial', 'alerting'],
+  },
+  {
+    id: 'payment-gateway-idempotency',
+    title: 'Idempotency and Webhooks: Lessons from Building a Payment Gateway',
+    description: 'Why naive webhook handling duplicates transactions, and how signature verification plus idempotency keys cut failed/duplicated payments by 90% on a gateway I built.',
+    date: '2026-07-05',
     readTime: 8,
-    tags: ['caching', 'redis', 'architecture', 'performance'],
-  },
-  {
-    id: 'microservices-migration',
-    title: 'From Monolith to Microservices: A Real-World Migration Story',
-    description: 'Lessons learned and best practices from migrating a monolithic application to event-driven microservices.',
-    date: '2024-03-01',
-    readTime: 12,
-    tags: ['microservices', 'architecture', 'systems-design'],
-  },
-  {
-    id: 'kubernetes-operators',
-    title: 'Writing Custom Kubernetes Operators for Production Workloads',
-    description: 'An in-depth guide to developing and deploying Kubernetes operators that manage complex distributed systems.',
-    date: '2024-02-15',
-    readTime: 10,
-    tags: ['kubernetes', 'devops', 'golang', 'automation'],
-  },
-  {
-    id: 'api-gateway-design',
-    title: 'Designing an Enterprise-Grade API Gateway',
-    description: 'Architecture patterns and implementation strategies for building scalable, resilient API gateways.',
-    date: '2024-02-01',
-    readTime: 9,
-    tags: ['api', 'infrastructure', 'design', 'routing'],
-  },
-  {
-    id: 'database-optimization',
-    title: 'PostgreSQL Query Optimization: From Slow to Lightning Fast',
-    description: 'Practical techniques for identifying and fixing performance bottlenecks in PostgreSQL databases.',
-    date: '2024-01-15',
-    readTime: 11,
-    tags: ['database', 'postgresql', 'performance', 'sql'],
-  },
-  {
-    id: 'observability-patterns',
-    title: 'Building Observable Systems: Logs, Metrics, and Traces',
-    description: 'A comprehensive guide to implementing observability across your backend infrastructure.',
-    date: '2024-01-01',
-    readTime: 13,
-    tags: ['observability', 'monitoring', 'architecture'],
+    tags: ['payments', 'webhooks', 'node.js', 'reliability'],
   },
 ];
 
@@ -70,8 +37,7 @@ export default function BlogPage() {
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl sm:text-5xl font-bold mb-4">Blog</h1>
             <p className="text-lg text-muted-foreground">
-              Articles about backend engineering, systems design, infrastructure, and the craft of building 
-              scalable software.
+              Notes from real projects — backend engineering, payments infrastructure, and industrial systems.
             </p>
           </div>
         </section>

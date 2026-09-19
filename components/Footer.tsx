@@ -23,12 +23,12 @@ export function Footer() {
   return (
     <footer className="border-t border-border bg-secondary py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* Brand */}
           <div className="md:col-span-1">
-            <h3 className="text-lg font-bold mb-2">Backend Engineer</h3>
+            <h3 className="text-lg font-bold mb-2">Francis Eze</h3>
             <p className="text-sm text-muted-foreground">
-              Crafting scalable systems and robust infrastructure.
+              Backend-focused fullstack engineer building systems for payments, industrial monitoring, and healthcare.
             </p>
           </div>
 
@@ -46,37 +46,6 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          {/* Resources */}
-          <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Documentation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Case Studies
-                </a>
-              </li>
-              <li>
-                <a
-                  href="#"
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  Tech Stack
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -108,16 +77,8 @@ export function Footer() {
         {/* Bottom */}
         <div className="border-t border-border pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            &copy; {currentYear} Backend Engineer Portfolio. All rights reserved.
+            &copy; {currentYear} Francis Eze. All rights reserved.
           </p>
-          <div className="flex gap-4 text-xs text-muted-foreground">
-            <a href="#" className="hover:text-foreground transition-colors">
-              Privacy
-            </a>
-            <a href="#" className="hover:text-foreground transition-colors">
-              Terms
-            </a>
-          </div>
         </div>
       </div>
     </footer>

@@ -21,8 +21,8 @@ export function AboutSection({ experiences }: AboutSectionProps) {
       >
         <h2 className="text-3xl sm:text-4xl font-bold mb-4">Professional Journey</h2>
         <p className="text-lg text-muted-foreground max-w-3xl">
-          A track record of building high-performance systems and leading technical initiatives across fast-growing companies. 
-          Passionate about clean code, system design, and mentoring the next generation of engineers.
+          A track record of shipping backend systems across payments, industrial monitoring, and healthcare, 
+          and leading feature launches end-to-end. Passionate about clean code, system design, and technical writing.
         </p>
       </motion.div>
 
@@ -46,13 +46,13 @@ export function AboutSection({ experiences }: AboutSectionProps) {
           I&apos;m a detail-oriented software engineer with a solid foundation in backend development, API design, and systems integration. Proficient in Python, Django, FastAPI, Go, and JavaScript frameworks, with experience in deploying scalable web applications using Docker, DigitalOcean, and CI/​CD tools. Demonstrated ability to solve business problems through code, with recent projects spanning e-commerce systems, healthcare automation, cybersecurity platforms, and intelligent financial decision engines. Skilled at cross-functional collaboration and technical writing, with a passion for building useful, performant, and user-centric software.
         </p>
         <p className="text-muted-foreground leading-relaxed mb-4">
-          My expertise spans from low-level systems programming to high-level architectural decisions. 
-          I&apos;m experienced in containerization, orchestration, monitoring, and building resilient systems 
-          that can handle extreme scale.
+          My work spans API design through deployment — containerizing services with Docker, deploying on 
+          DigitalOcean and AWS, and building the data models and background jobs that keep systems reliable 
+          under real usage.
         </p>
         <p className="text-muted-foreground leading-relaxed">
-          When I&apos;m not writing code or architecting systems, you&apos;ll find me contributing to open source, 
-          writing about backend engineering, or mentoring junior developers.
+          When I&apos;m not writing code, you&apos;ll find me writing about backend engineering or exploring 
+          new corners of the fintech and industrial-tech space.
         </p>
       </motion.div>
     </section>

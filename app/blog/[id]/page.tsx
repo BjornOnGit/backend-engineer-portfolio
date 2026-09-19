@@ -1,5 +1,6 @@
 import { Navigation } from '@/components/Navigation';
 import { Footer } from '@/components/Footer';
+import { MarkdownContent } from '@/components/MarkdownContent';
 import Link from 'next/link';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 import { notFound } from 'next/navigation';
@@ -10,68 +11,88 @@ interface BlogPostPageProps {
   }>;
 }
 
-// Mock blog posts database
+// Blog post content database
 const blogPosts: Record<string, any> = {
-  'distributed-caching': {
-    title: 'Building High-Performance Distributed Caching Systems',
-    date: '2024-03-15',
+  'sensor-alerting-thresholds': {
+    title: 'Designing a Threshold-Based Alerting System for Industrial Sensor Data',
+    date: '2026-08-20',
+    readTime: 7,
+    tags: ['fastapi', 'postgresql', 'industrial', 'alerting'],
+    content: `When I built the alerting layer for a predictive maintenance platform, the goal was simple to state and harder to get right: watch live vibration and temperature readings from industrial equipment, and tell an operator the moment something looks wrong, without burying them in noise.
+
+## Why naive alerting fails fast
+
+The obvious first pass is to fire an alert every time a reading crosses a fixed threshold. That works for about a day. Sensor data is noisy by nature, so a value that briefly spikes above the limit and settles back down triggers an alert, then another one a few seconds later when it spikes again, then another. Operators stop trusting the system within a week, which defeats the entire point of predictive maintenance. **The failure mode isn't "no alerts," it's "too many alerts to act on."**
+
+## Severity, not just threshold-crossing
+
+The system scores incoming sensor readings against per-asset thresholds and classifies the result by severity rather than treating every breach as equal:
+
+- **Normal** — within expected range, no action
+- **Watch** — marginally over the line, logged but not escalated
+- **Critical** — far outside normal range, or climbing steadily across several evaluation cycles
+
+That distinction alone cut a lot of the noise, because most transient spikes never reach the critical tier.
+
+## Suppressing duplicate active alerts
+
+The second piece was preventing the same underlying problem from generating a new alert every time the scheduler ran its evaluation pass. The rule is simple:
+
+1. Each asset can only have one *active* alert per condition at a time
+2. A new breach on an already-alerted condition updates the existing alert's severity and last-seen timestamp instead of creating a duplicate
+3. The alert only closes after readings return to normal for a sustained period, not on the first good reading, since equipment behavior fluctuates even when it's actually failing
+
+## Running the evaluation automatically
+
+None of this matters if someone has to manually trigger the checks. I used APScheduler to run periodic sensor evaluation and prediction jobs in the background, so the FastAPI backend continuously re-scores every monitored asset without manual intervention. The scikit-learn prediction service sits alongside the threshold checks, giving a failure-risk score in addition to the raw threshold state — so operators get both "this reading is out of range right now" and "this asset's overall trend suggests rising failure risk."
+
+## What I'd tighten next
+
+If I extended this further, the next step would be making the threshold windows adaptive per asset rather than globally configured, since a vibration level that's normal for one piece of equipment can be a warning sign on another. Right now that tuning happens per asset at setup time, which works but doesn't adjust itself as equipment ages. That's the honest gap between "working system" and "system I'd fully trust unattended," and it's next on the list.`,
+  },
+  'payment-gateway-idempotency': {
+    title: 'Idempotency and Webhooks: Lessons from Building a Payment Gateway',
+    date: '2026-07-05',
     readTime: 8,
-    tags: ['caching', 'redis', 'architecture', 'performance'],
-    content: `# Building High-Performance Distributed Caching Systems
+    tags: ['payments', 'webhooks', 'node.js', 'reliability'],
+    content: `Building a payment gateway makes you paranoid in a useful way, because the failure modes aren't abstract. A duplicated charge or a missed reconciliation is money, not just a bug ticket.
 
-Distributed caching is one of the most effective ways to improve application performance and reduce load on your databases. In this article, we'll explore the principles of building a high-performance distributed caching system that can handle millions of requests per second.
+## The retry problem
 
-## The Challenge
+Payment processing involves multiple parties talking over an unreliable network: your service, the payment provider, and often a bank in the middle. Any of those calls can time out, and when a client doesn't get a response, the natural thing to do is retry. Without safeguards, a retried request that actually succeeded the first time just processes the same payment twice.
 
-As applications scale, database queries become a bottleneck. Every database hit adds latency, consumes resources, and limits throughput. A well-designed caching layer can reduce database load by 70-90% and dramatically improve response times.
+I built the transaction endpoints to be **idempotent**, so a request carrying the same idempotency key is recognized as a repeat of an in-flight or completed operation rather than a new one, and returns the original result instead of charging again.
 
-## Key Architecture Decisions
+## Webhooks are the other half of the picture
 
-When building a distributed cache, you need to consider:
+Payment providers confirm final transaction status asynchronously through webhooks, which introduces a second failure mode: how do you know a webhook actually came from the provider and not from someone who found your endpoint?
 
-- **Consistency Models**: Trade-offs between strong consistency and availability
-- **Cache Invalidation**: One of the hardest problems in computer science
-- **Scalability**: Ensuring the cache itself doesn't become a bottleneck
-- **Reliability**: Handling cache failures gracefully
+Every incoming webhook goes through the same checks before anything else happens:
 
-## Implementation Strategies
+- Signature verified against the payload using the provider's shared secret
+- Malformed or unverified signatures rejected outright, no partial processing
+- Verified events checked against the idempotency store before being applied
 
-Using Redis as our foundation, we implemented:
+That signature check is what actually made asynchronous event handling safe to rely on — it stops forged or replayed events from being treated as real payment confirmations.
 
-1. **Write-Through Caching**: Updates immediately invalidate cache
-2. **Cache-Aside Pattern**: Application logic handles cache misses
-3. **Time-Based Expiration**: Automatic cleanup of stale data
-4. **Distributed Hashing**: Consistent hashing for node distribution
+## Logging every state transition
 
-## Results
+The other piece that mattered more than I expected going in was transaction logging and auditing. Every state a transaction passes through — *initiated → verified → reconciled → failed* — gets logged. When a customer or a support ticket asks "what happened to this payment," the answer should come from a log, not from guessing based on the current state.
 
-The implementation achieved:
-- **99.99% cache hit rate** for frequently accessed data
-- **Sub-millisecond** latency for cache lookups
-- **100k+ requests/second** throughput
-- **70% reduction** in database load
+This is also what made reconciliation possible: comparing what the gateway recorded against what the provider reports, and flagging the mismatches automatically instead of manually cross-checking spreadsheets.
 
-This architecture serves millions of users and continues to scale effortlessly.`,
-  },
-  'microservices-migration': {
-    title: 'From Monolith to Microservices: A Real-World Migration Story',
-    date: '2024-03-01',
-    readTime: 12,
-    tags: ['microservices', 'architecture', 'systems-design'],
-    content: `# From Monolith to Microservices
+## The result
 
-Learn about the challenges and successes of migrating a large monolithic application to a modern microservices architecture.
+| Metric | Improvement |
+|---|---|
+| Failed / duplicated transactions | down 90% |
+| Manual reconciliation effort | down 70% |
 
-This comprehensive article walks through real-world decisions, trade-offs, and lessons learned during a complex migration project...`,
-  },
-  'kubernetes-operators': {
-    title: 'Writing Custom Kubernetes Operators for Production Workloads',
-    date: '2024-02-15',
-    readTime: 10,
-    tags: ['kubernetes', 'devops', 'golang', 'automation'],
-    content: `# Kubernetes Operators Guide
+Those numbers came from a genuinely painful before-state, where retries and unverified events were silently causing double-processing that nobody noticed until reconciliation.
 
-Custom operators extend Kubernetes to manage complex applications. In this guide, we explore operator design patterns...`,
+## What surprised me
+
+The technically hardest part wasn't the payment logic itself — it was resisting the urge to treat webhook delivery as reliable. Providers can and do deliver the same webhook more than once, deliver it late, or occasionally not deliver it at all. Designing for "this event might arrive twice or not at all" from the start turned out to matter more than any individual API integration detail.`,
   },
 };
 
@@ -162,25 +183,8 @@ export default async function BlogPostPage(props: BlogPostPageProps) {
 
           {/* Article Content */}
           <section className="py-12 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-3xl mx-auto prose prose-invert max-w-none">
-              <div
-                className="text-muted-foreground leading-relaxed space-y-6"
-                dangerouslySetInnerHTML={{
-                  __html: post.content
-                    .split('\n\n')
-                    .filter(Boolean)
-                    .map((para: string) => {
-                      if (para.startsWith('#')) {
-                        const level = para.match(/^#+/)?.[0].length || 1;
-                        const text = para.replace(/^#+\s/, '');
-                        const tag = `h${level + 1}`;
-                        return `<${tag} class="text-${['', 'xl', 'lg', 'base'][level]} font-bold text-foreground mt-8 mb-4">${text}</${tag}>`;
-                      }
-                      return `<p>${para}</p>`;
-                    })
-                    .join(''),
-                }}
-              />
+            <div className="max-w-3xl mx-auto">
+              <MarkdownContent content={post.content} />
             </div>
           </section>
         </article>

@@ -65,16 +65,18 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:hello@example.com"
+                href="mailto:ezefrancis049@gmail.com"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg bg-accent text-primary-foreground font-medium hover:bg-accent-hover transition-colors"
               >
                 Send Me An Email
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/francis-eze-ogonnaya"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-lg border border-accent/30 text-foreground hover:border-accent hover:bg-accent/5 transition-colors"
               >
-                Schedule A Call
+                Connect On LinkedIn
               </a>
             </div>
           </div>

@@ -89,8 +89,8 @@ export function HeroSection() {
           >
             {[
               { label: 'Years Experience', value: '3+' },
-              { label: 'Projects Built', value: '10+' },
-              { label: 'Failed Transactions', value: '< 90%' },
+              { label: 'Projects Shipped', value: '10+' },
+              { label: 'Failed Transactions Reduced', value: '90%' },
             ].map((stat, i) => (
               <div key={i} className="text-center">
                 <p className="text-3xl sm:text-4xl font-bold text-accent mb-2">{stat.value}</p>
